@@ -1,6 +1,6 @@
 # <Your-Project-Title>
 
-Protected by a ![Static Badge](https://img.shields.io/badge/undefined-b06402) [License](#license)
+Protected by a ![Static Badge](https://img.shields.io/badge/MIT-b06402) [License](#license)
 
 ## Description
 
