@@ -1,0 +1,13 @@
+{
+  "name": "disgruntled-millennials-group2",
+  "version": "1.0.0",
+  "description": "Place to chat for millennials who are sick of social media",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
