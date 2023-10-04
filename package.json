@@ -11,9 +11,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.0.0",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
+=======
+    "bulma": "^0.9.4",
+>>>>>>> 3a1a7bd (Rough layout of dashboard for review)
     "express": "^4.16.3"
   }
 }
