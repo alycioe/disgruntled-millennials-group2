@@ -13,6 +13,8 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "bulma": "^0.9.4",
+    "express": "^4.16.3",
+    "bulma": "^0.9.4",
     "connect-sqlite3": "^0.9.13",
     "dotenv": "^16.3.1",
     "express": "^4.16.3",
@@ -20,6 +22,7 @@
     "express-session": "^1.17.3",
     "mysql2": "^2.2.5",
     "sequelize": "^6.3.5",
+    "bulma": "^0.9.4",
     "express": "^4.16.3"
   }
 }
