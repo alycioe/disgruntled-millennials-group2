@@ -20,60 +20,16 @@
 </head>
 
 <body>
-    
-    <nav class="navbar custom_colorBG"> 
+    <div id="login-form">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="login-identifier">Email or Username:</label>
+            <input type="text" name="login-identifier" id="login-identifier" required>
 
-    <h2 class="title is-2" > Site name : Login</h2>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="login-password" required>
 
-    </nav>
-
-    <section class = "mx-6 my-3">
-
-        <form  id = "login-form">
-
-            <div class="field py-2">
-
-                <div class="control has-icons-left">
-
-                <input class="input custom_colorBD" type="email" id="login-identifier" placeholder="Email" required>
-
-                <span class="icon is-small is-left">
-
-                    <i class="fas fa-envelope"></i>
-
-                </span>
-
-            </div>
-            
-            <div class="field py-2">
-
-                <p class="control has-icons-left">
-
-                <input class="input custom_colorBD" type="password" id="login-password" placeholder="Password" required>
-
-                <span class="icon is-small is-left">
-
-                    <i class="fas fa-lock"></i>
-
-                </span>
-
-                </p>
-
-            </div>
-
-            <div class="field">
-
-                <p class="control">
-
-                <button type="submit" class="button custom_colorBG">Login</button>
-
-                <button class="button custom_colorBG is-light" id="toggle-form">No account? Sign up here!</button>
-
-
-                </p>
-                
-            </div>
-
+            <button type="submit">Login</button>
         </form>
 
     </section>
@@ -195,6 +151,9 @@
             var signupPassword = document.getElementById("signup-password").value;
             var animalChoice = document.getElementById("animal-choice").value;
             // Add signup logic
+
+        </script> -->
+
 </body>
 
 </html>

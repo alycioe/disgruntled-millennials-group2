@@ -12,14 +12,11 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "bulma": "^0.9.4",
-    "connect-sqlite3": "^0.9.13",
-    "express": "^4.16.3",
-    "express-session": "^1.17.3",
-    "multer": "^1.4.5-lts.1",
     "mysql2": "^2.2.5",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+=======
+    "bulma": "^0.9.4",
+>>>>>>> 3a1a7bd (Rough layout of dashboard for review)
+    "express": "^4.16.3"
   }
 }
