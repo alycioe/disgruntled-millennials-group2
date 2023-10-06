@@ -1,13 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 const users = [];
 
@@ -39,6 +45,10 @@ app.post('/login', (req, res) => {
 
   res.json({ message: 'Login successful' });
 });
+
+app.get('/', (req, res) => {
+  res.render('login');
+})
 app.listen(PORT, () => {
   console.log('Server listening on: http://localhost:' + PORT);
 });
