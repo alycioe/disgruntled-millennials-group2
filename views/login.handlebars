@@ -1,25 +1,88 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login and Signup</title>
+
+    <link rel="stylesheet" href="./../public/css/reset.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link rel="stylesheet" href="./../public/css/style.css">
+
+    <title>Login</title>
+
 </head>
+
 <body>
-    <div id="login-form">
-        <h2>Login</h2>
-        <form id="login-form">
-            <label for="login-identifier">Email or Username:</label>
-            <input type="text" name="login-identifier" id="login-identifier" required>
-
-            <label for="login-password">Password:</label>
-            <input type="password" id="login-password" name="login-password" required>
-
-            <button type="submit">Login</button>
-        </form>
-    </div>
     
-    <div id="signup-form" style="display: none;">
+    <nav class="navbar custom_colorBG"> 
+
+    <h2 class="title is-2" > Site name : Login</h2>
+
+    </nav>
+
+    <section class = "mx-6 my-3">
+
+        <form  id = "login-form">
+
+            <div class="field py-2">
+
+                <div class="control has-icons-left">
+
+                <input class="input custom_colorBD" type="email" id="login-identifier" placeholder="Email" required>
+
+                <span class="icon is-small is-left">
+
+                    <i class="fas fa-envelope"></i>
+
+                </span>
+
+            </div>
+            
+            <div class="field py-2">
+
+                <p class="control has-icons-left">
+
+                <input class="input custom_colorBD" type="password" id="login-password" placeholder="Password" required>
+
+                <span class="icon is-small is-left">
+
+                    <i class="fas fa-lock"></i>
+
+                </span>
+
+                </p>
+
+            </div>
+
+            <div class="field">
+
+                <p class="control">
+
+                <button type="submit" class="button custom_colorBG">Login</button>
+
+                <button class="button custom_colorBG is-light" id="toggle-form">No account? Sign up here!</button>
+
+
+                </p>
+                
+            </div>
+
+        </form>
+
+    </section>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script src="./../public/js/login.js"></script>
+
+<!-- <div id="signup-form" style="display: none;">
         <h2>Sign Up</h2>
         <form id="signup-form">
             <label for="signup-email">Email:</label>
@@ -40,9 +103,7 @@
             <button type="submit">Signup</button>
         </form>
     </div>
-    <button id="toggle-form">No account? Sign up here!</button>
-
-    <script id="login-template" type="text/x-handlebars-template">
+     <script id="login-template" type="text/x-handlebars-template">
         <h2>Login</h2>
         <form id="login-form">
             <label for="login-identifier">Email or Username:</label>
@@ -134,29 +195,7 @@
             var signupPassword = document.getElementById("signup-password").value;
             var animalChoice = document.getElementById("animal-choice").value;
             // Add signup logic
-            var userData = {
-                email: signupEmail,
-                username: signupUsername,
-                password: signupPassword,
-                animalChoice: animalChoice
-            };
 
-            fetch('/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-
-        document.getElementById()
 </body>
+
 </html>
