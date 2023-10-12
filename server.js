@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const multer = require('multer');  // Multer for handling file uploads
-const routes = require('./controllers');
 const { POST } = require('./model');
+const routes = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
