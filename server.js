@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
+const hbs = require('express-handlebars');
 const path = require('path');
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 
 
-app.engine('handlebars', exphbs());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 const users = [];
