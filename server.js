@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
 const path = require('path');
 const multer = require('multer');  // Multer for handling file uploads
 const { POST } = require('./models');  
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -23,6 +25,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
 
 const users = [];
 
@@ -62,6 +68,7 @@ app.post('/login', (req, res) => {
 
   res.json({ message: 'Login successful' });
 });
+
 
 // Route for text posts (no image)
 app.post('/create-text-post', (req, res) => {
@@ -108,6 +115,11 @@ app.post('/create-image-post', upload.single('image'), (req, res) => {
       res.status(500).send('Error creating image post');
     });
 });
+
+
+app.get('/', (req, res) => {
+  res.render('login');
+})
 
 app.listen(PORT, () => {
   console.log('Server listening on: http://localhost:' + PORT);
