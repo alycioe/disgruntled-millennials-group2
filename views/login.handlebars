@@ -162,14 +162,26 @@
             var loginIdentifier = document.getElementById("login-identifier").value;
             var loginPassword = document.getElementById("login-password").value;
 
-            // Checks if login is by email or username
-            if(isValidEmail(loginIdentifier)) {
-                // Handle email login, use identifier and pass for authentication
+            var loginData = {
+                loginIdentifier: loginIdentifier,
+                loginPassword: loginPassword
+            };
 
-            } else {
-            // Handle username login, use identifier and pass for authentication 
-            }
-    
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
         });
 
         function isValidEmail(email) {
@@ -178,12 +190,11 @@
     // Add login logic
         document.getElementById("signup-form").addEventListener("submit", function(event) {
             event.preventDefault();
+            var signupEmail = document.getElementById("signup-email").value;
             var signupUsername = document.getElementById("signup-username").value;
             var signupPassword = document.getElementById("signup-password").value;
-            var animal-choice = document.getElementById("animal-choice").value;
+            var animalChoice = document.getElementById("animal-choice").value;
             // Add signup logic
-
-        </script> -->
 
 </body>
 
