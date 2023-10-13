@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    userName: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
@@ -42,6 +42,9 @@ User.init(
         len: [8],
         msg: 'Please enter your password'
       },
+    },
+    animalChoice: {
+      type: DataTypes.ENUM('Dog', 'Cat'),
     },
   },
   {

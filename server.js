@@ -3,11 +3,25 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const multer = require('multer');  // Multer for handling file uploads
-const { POST } = require('./models');
 const routes = require('./controllers');
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+const sess = {
+  secret: 'myLInne14L5', // just a pun on the word millennials
+  cookie: {},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+}
+
+app.use(session(sess));
 
 app.use(routes);
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,15 +40,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+const hbs = exphbs.create();
 
-
-app.engine('handlebars', exphbs());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
-
-app.get('/', (req, res) => {
-  res.render('login');
-})
 
 app.listen(PORT, () => {
   console.log('Server listening on: http://localhost:' + PORT);
