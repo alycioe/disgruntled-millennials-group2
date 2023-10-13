@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Login</title>
+
+</head>
+
+<body>
+    
+    <nav class="navbar custom_colorBG"> 
+
+    <h2 class="title is-2" > MilBook : Login</h2>
+
+    </nav>
+
+    <section class = "mx-6 my-3">
+
+        <form  id = "login-form">
+
+            <div class="field py-2">
+
+                <div class="control has-icons-left">
+
+                <input class="input custom_colorBD" type="email" id="login-identifier" placeholder="Email" required>
+
+                <span class="icon is-small is-left">
+
+                    <i class="fas fa-envelope"></i>
+
+                </span>
+
+            </div>
+            
+            <div class="field py-2">
+
+                <p class="control has-icons-left">
+
+                <input class="input custom_colorBD" type="password" id="login-password" placeholder="Password" required>
+
+                <span class="icon is-small is-left">
+
+                    <i class="fas fa-lock"></i>
+
+                </span>
+
+                </p>
+
+            </div>
+
+            <div class="field">
+
+                <p class="control">
+
+                <button type="submit" class="button custom_colorBG">Login</button>
+
+                <button class="button custom_colorBG is-light" id="toggle-form">No account? Sign up here!</button>
+
+
+                </p>
+                
+            </div>
+
+        </form>
+
+    </section>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script src="./js/login.js"></script>
+

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const multer = require('multer');  // Multer for handling file uploads
+const { POST } = require('./model');
 const routes = require('./controllers');
 
 const sequelize = require('./config/connection');
