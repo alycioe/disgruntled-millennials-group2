@@ -9,6 +9,16 @@ const routes = require('./controllers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+//you can delete these limes 12 - 20 just so you can see the log in / sign up page 
+
+app.get('/login', async (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/login.html'))
+ });
+
+ app.get('/signup', async (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/signup.html'))
+ });
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
