@@ -1,11 +1,11 @@
 .custom_colorBD {
 
-    border: 2px solid rgba(255, 0, 0, 0.31);
+    border: 2px solid rgba(78, 222, 208, 0.31);
 
 }
 
 .custom_colorBG{
 
-    background-color:  red;
+    background-color:  rgba(78, 222, 208);
 
 }
