@@ -27,6 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(routes);
+
 // MAKE SURE TO INSTALL EXPRESS-HANDLEBARS
 app.engine(
   'handlebars',
@@ -57,10 +62,6 @@ app.get('/login', (req, res) => {
     layout: 'main',
     });
  });
-
-app.use(routes);
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // Multer for handling file uploads
 // CURRENTLY ONLY FOR LOCAL STORAGE

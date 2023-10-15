@@ -30,9 +30,23 @@
         <!-- Make a post area -->
         <div class="card">
             <div class="card-content is-flex-direction-row">
-                <!-- Make a post! section, for adding text, image, links, etc -->
+                <form id="post-form">
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="textarea" id="post-text" placeholder="Type your post here" rows="4" required>
+                                Type your post here!
+                                </textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button type="submit" class="button is-link">Post</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
+
 
         <!-- Where posts are displayed -->
         <div class="card">
