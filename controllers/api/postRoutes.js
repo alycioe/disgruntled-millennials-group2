@@ -2,7 +2,7 @@
 // postRoutes.js
 
 const router = require('express').Router();
-const { Post } = require('../../model/Posts');
+const { Post, User } = require('../../model');
 
 // Route for text posts (no image)
 router.post('/create-text-post', async (req, res) => {
@@ -18,12 +18,28 @@ router.post('/create-text-post', async (req, res) => {
     .then((post) => {
       // Post creation successful
       // REDIRECT TO DASHBOARD...?
-      res.redirect('/');
+      res.redirect('/'); //
     })
     .catch((err) => {
       console.error('Error creating text post:', err);
       res.status(500).send('Error creating text post');
+
+router.post('/', async (req, res) => {
+  try {
+    const homepage = Post.findAll({
+      attributes: [
+          "username",
+          "text",
+      ],
+    })
+    res.render('/homepage', {
+      homepage,
+      logged_in: req.session.logged_in,
     });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
 });
 
 /*
@@ -51,5 +67,15 @@ app.post('/create-image-post', upload.single('image'), (req, res) => {
       res.status(500).send('Error creating image post');
     });
 });*/
+
+router.post('/logout', async (req, res) => {
+  if (req.session.logged_in) {
+      req.session.destroy(() => {
+          res.status(204).end();
+      })
+  } else {
+      res.status(404).end();
+  }
+});
 
 module.exports = router;
