@@ -1,17 +1,19 @@
-// WIP
+// WIP 
+// postRoutes.js
 
 const router = require('express').Router();
 const { Post } = require('../../model/Posts');
 
 // Route for text posts (no image)
-app.post('/create-text-post', async (req, res) => {
+router.post('/create-text-post', async (req, res) => {
   // Extract text content from the request body
   const { text } = req.body;
 
   // Create a new post record in the database
-  POST.create({
+  Post.create({
+    userName: 'User Name',
     text: text,
-    // ADD USER ID AND OTHER PARAMETERS
+    user_id: 1, //IDK WHAT TO DO WITH THIS
   })
     .then((post) => {
       // Post creation successful
@@ -24,6 +26,7 @@ app.post('/create-text-post', async (req, res) => {
     });
 });
 
+/*
 // Route for text and image posts
 app.post('/create-image-post', upload.single('image'), (req, res) => {
   // Extract text content from the request body
@@ -47,6 +50,6 @@ app.post('/create-image-post', upload.single('image'), (req, res) => {
       console.error('Error creating image post:', err);
       res.status(500).send('Error creating image post');
     });
-});
+});*/
 
 module.exports = router;

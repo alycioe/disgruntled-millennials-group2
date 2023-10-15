@@ -11,6 +11,14 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use(routes);
+
 // MAKE SURE TO INSTALL EXPRESS-HANDLEBARS
 app.engine(
   'handlebars',
@@ -42,13 +50,7 @@ app.get('/login', (req, res) => {
     });
  });
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(routes);
 
 app.listen(PORT, () => {
   console.log('Server listening on: http://localhost:' + PORT);
