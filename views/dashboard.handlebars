@@ -1,62 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!-- Title of site/logged in profile information goes here -->
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-        <link rel="stylesheet" href="./public/css/reset.css">
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
+        <nav class="navbar custom_colorBG">
 
-   
-    <body>
-        <!-- Title of site/logged in profile information goes here -->
-        <header class="level-left">
-            <h1 class="title">MilBook</h1>
-            <!-- Profile picture code here -->
-            <!-- Profile information when logged in below -->
-            <div class="card">
-                <div class="card-content is-flex-direction-column">
+            <h2 class="title is-2" > MilBook </h2>
+
+
+        </nav>
+
+        <section class=" is-flex is-flex-direction-row  mt-4 mx-2 custom_colorBD"	>
+
+         <div class="card is-flex-grow-1 m-2 custom_colorBG">
+                
+                <div class="card-content is-flex-direction-column" id = "Name">
+
                     Name: John Doe
-                    Animal: Dog
-                    Age: 20
-                    Points: 0 
-                </div>
-            </div>
 
-        </header>
-        <!-- Make a post area -->
-        <div class="card">
-            <div class="card-content is-flex-direction-row">
-                <form id="post-form">
-                    <div class="field">
-                        <div class="control">
-                            <textarea class="textarea" id="post-text" placeholder="Type your post here" rows="4" required>
-                                Type your post here!
-                                </textarea>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="control">
-                            <button type="submit" class="button is-link">Post</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
+
+                <div class="card-content is-flex-direction-column" id = "Animal">
+
+                    Animal: Dog
+
+                </div>
+
             </div>
-        </div>
 
 
         <!-- Where posts are displayed -->
-        <div class="card">
-            <div class="card-content is-flex-direction-column">
-                <!-- Posts displayed here -->
-            </div>
+
+            <section class="is-flex-grow-5">
             
-        </div>
-    </body>
+            <div class="card custom_colorBG mx-4 mt-6">
 
-    
+                <div class="card-content is-flex-direction-column">
 
-</html>
+                    <!-- Posts displayed here -->
+                    
+                </div>
+                
+            </div>
+
+            <!-- Make a post area -->
+
+            <div class="card mx-4 my-4">
+
+                <!-- Make a post! section, for adding text, image, links, etc -->
+
+                    <input class="input is-rounded custom_colorBD" type="text" placeholder="Message" id = "TextBox">
+
+            </div>
+
+            </section>
+
+    </section>

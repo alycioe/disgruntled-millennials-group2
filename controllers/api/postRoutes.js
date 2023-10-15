@@ -24,6 +24,11 @@ router.post('/create-text-post', async (req, res) => {
       console.error('Error creating text post:', err);
       res.status(500).send('Error creating text post');
 
+    })
+
+});
+
+
 router.post('/', async (req, res) => {
   try {
     const homepage = Post.findAll({
