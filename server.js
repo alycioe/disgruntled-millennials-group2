@@ -34,7 +34,6 @@ app.use(bodyParser.json());
 
 app.use(routes);
 
-// MAKE SURE TO INSTALL EXPRESS-HANDLEBARS
 app.engine(
   'handlebars',
   exphbs({
@@ -43,23 +42,22 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 
-
-app.get('/login', (req, res) => {
-  //res.sendFile(path.join(__dirname, '/views/login.html'))
-  res.render('login', {
-  layout: 'main',
-  });
- });
-
- app.get('/signup', (req, res) => {
-  //res.sendFile(path.join(__dirname, '/views/signup.html'))
+// This sends the user to the signup page at the root
+app.get('/', (req, res) => {
   res.render('signup', {
     layout: 'main',
     });
  });
 
+ // This sends the user to the login page at /login
+app.get('/login', (req, res) => {
+  res.render('login', {
+  layout: 'main',
+  });
+ });
+
+  // This sends the user to the login page at /signup
  app.get('/dashboard', (req, res) => {
-  //res.sendFile(path.join(__dirname, '/views/signup.html'))
   res.render('dashboard', {
     layout: 'main',
     });
