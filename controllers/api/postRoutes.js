@@ -10,6 +10,7 @@ router.post('/create-text-post', async (req, res) => {
 
   // Extract text content from the request body
 
+
   const newPost = req.body;
 
   fs.readFile('./seeds/postData.json', 'utf8', async (err, data) => {
@@ -70,6 +71,7 @@ router.post('/create-text-post', async (req, res) => {
 });
 
 });
+
 
 router.post('/', async (req, res) => {
   try {
