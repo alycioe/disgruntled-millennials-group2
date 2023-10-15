@@ -20,9 +20,43 @@ const sess = {
   store: new SequelizeStore({
     db: sequelize
   })
-}
+};
 
 app.use(session(sess));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// MAKE SURE TO INSTALL EXPRESS-HANDLEBARS
+app.engine(
+  'handlebars',
+  exphbs({
+    defaultLayout: 'main',
+  })
+);
+app.set('view engine', 'handlebars');
+
+
+app.get('/login', (req, res) => {
+  //res.sendFile(path.join(__dirname, '/views/login.html'))
+  res.render('login', {
+  layout: 'main',
+  });
+ });
+
+ app.get('/signup', (req, res) => {
+  //res.sendFile(path.join(__dirname, '/views/signup.html'))
+  res.render('signup', {
+    layout: 'main',
+    });
+ });
+
+ app.get('/dashboard', (req, res) => {
+  //res.sendFile(path.join(__dirname, '/views/signup.html'))
+  res.render('dashboard', {
+    layout: 'main',
+    });
+ });
 
 app.use(routes);
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,9 +76,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 const hbs = exphbs.create();
-
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
 app.listen(PORT, () => {
   console.log('Server listening on: http://localhost:' + PORT);
