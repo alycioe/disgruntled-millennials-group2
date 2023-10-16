@@ -1,14 +1,10 @@
-# <Your-Project-Title>
+# Milbook Social Media
 
 Protected by a ![Static Badge](https://img.shields.io/badge/MIT-b06402) [License](#license)
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: 
-- What was your motivation? 
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+This website was made for people within the millennial age range and younger who are sick of social media and its negativity. On this website, you are invited in with pictures of puppies, kittens, and memes so that even a bad day can be turned into a good day! The motivation behind this project was to build a social media site where people can go to feel better, not worse. We solidified a lot of our knowledge of the backend of coding as well as how it connects to the front end.
 
 ## Table of Contents
 
@@ -18,18 +14,17 @@ Provide a short description explaining the what, why, and how of your project. U
 - [License](#license)
 - [Badges](#Badges)
 - [Features](#Features)
-- [Contribute](#Contribute)
 - [Tests](#Tests)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+By opening the terminal and installing npm with the add ons bcrypt, bulma, connect-sequelize-session, connect-sqlite3, dotenv, express, express-handlebars, express-session, multer, mysql2, and sequelize, this site can be run with the functionality as was intended.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+This website can be used to share posts on a social media platform where, if certain keywords are written, a picture of a puppy or kitten will be submitted to the user's post to make them feel better if they were having a bad day. Regardless of the status of their day, there isn't a sane person on the planet who wouldn't enjoy a picture of a puppy or kitten to brighten their day. Posts can be made with either text or pictures and submitted to the dashboard for people to see. 
 
-To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+<!-- Will add screenshot when I figure out how Heroku works -->
             
 ![alt text](assets/images/screenshot.png)
 
@@ -39,17 +34,16 @@ Used to make read me https://github.com/jbird11801/ReadMeGenerator
 
 ==============================================================================================================================
 
-List your collaborators, if any, with links to their GitHub profiles.
-            
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-            
-If you followed tutorials, include links to those here as well.
+Alexander Locke : https://github.com/AlexanderLocke
+Jarod : https://github.com/jbird11801
+Joseph Teixeira: https://github.com/jotex11
+Allyson Pacheco: https://github.com/alycioe
 
 ==============================================================================================================================
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+MIT License
 
 ## Badges
 
@@ -60,10 +54,6 @@ Badges aren't necessary, but they demonstrate street cred. Badges let other deve
 ## Features
 
 If your project has a lot of features, list them here.
-
-## Contribute
-
-If you created an application or package and would like other developers to contribute to it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
 
 ## Tests
 
