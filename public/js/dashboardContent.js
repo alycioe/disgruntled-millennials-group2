@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
         functions[randomIndex]();
     };
 
-
     // Update the date and time every second (1000 milliseconds)
     setInterval(updateLocalDateTime, 1000);
 
@@ -102,7 +101,5 @@ document.addEventListener('DOMContentLoaded', function () {
     updateLocalDateTime();
 
     displayRandomContent();
-
     
 });
-
