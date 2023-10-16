@@ -2,7 +2,7 @@
 // postRoutes.js
 
 const router = require('express').Router();
-const { Post } = require('../../model');
+const { Post , User} = require('../../model');
 const fs = require('fs');
 const multer = require('multer');
 
@@ -69,50 +69,6 @@ router.post('/create-text-post', Auth , async (req, res) => {
 });
 
 });
-
-
-router.post('/', async (req, res) => {
-  try {
-    const homepage = Post.findAll({
-      attributes: [
-          "username",
-          "text",
-      ],
-    })
-    res.render('/homepage', {
-      homepage,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json(err);
-  }
-});
-
-
-// router.post('/create-image-post', upload.single('image'), (req, res) => {
-//   // Extract text content from the request body
-//   //const { text } = req.body;
-
-//   // Extract image information from the request file (Multer)
-//   // THIS NEEDS TO BE ADDED
-//   const { originalname, filename, path } = req.file;
-
-//   // Create a new post record in the database (assuming you have a Post model)
-//   POST.create({
-//     text: text,
-//     imageUrl: `/uploads/${filename}`, // Store the image path
-//     // ADD USER ID AND OTHER PARAMETERS
-//   })
-//     .then((post) => {
-//       // Post creation successful, redirect or send a response
-//       res.redirect('/');
-//     })
-//     .catch((err) => {
-//       console.error('Error creating image post:', err);
-//       res.status(500).send('Error creating image post');
-//     });
-// });
 
 router.post('/logout', async (req, res) => {
   if (req.session.logged_in) {
