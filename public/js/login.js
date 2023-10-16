@@ -25,7 +25,7 @@ const loginFormHandler = async (event) => {
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
-    
+    window.location.href = '/signup';
     console.log("sign up"); // send user to sign up page 
     
   };

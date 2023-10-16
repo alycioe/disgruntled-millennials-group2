@@ -5,6 +5,7 @@ const loginFormHandler = async (event) => {
 
     event.preventDefault();
 
+      window.location.href = '/login';
       console.log ("login"); // send user to login form
       
   };
