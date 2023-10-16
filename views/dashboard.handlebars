@@ -40,6 +40,8 @@
                 <div class="card-content is-flex-direction-column">
 
                     <!-- Posts displayed here -->
+
+                    <h3>Posts appear here</h3>
                     
                 </div>
                 
@@ -47,35 +49,30 @@
 
             <!-- Make a post area -->
 
-            <div class="card mx-4 my-4">
+            <div class=" mx-4 my-4 is-flex is-flex-direction-row is-align-items-center">
 
                 <!-- Make a post! section, for adding text, image, links, etc -->
-                    <h3>Type your post here!</h3>
 
-                    <input class="input is-rounded custom_colorBD" type="text" placeholder="Message" id = "TextBox">
+
+                    <input class="input is-rounded custom_colorBD p-3" type="text" placeholder="Type your post here!" id = "TextBox">
+
+                    
+
+
+                    <button class="button is-rounded custom_colorBG p-3" id="postButton">
+                        <span class="icon is-small">
+                            <i class="fa-solid fa-paper-plane "></i>
+                        </span>
+                        <span>Post</span>
+                    </button>
 
                     <form action="/create-image-post" method="POST" enctype="multipart/form-data">
                         <input type="file" name="image" id="image" accept="image/*">
                     </form>
-
-                    <button class="button is-primary mt-2" id="postButton">Post</button> 
-
+                    
             </div>
-
-
-            <!-- Where posts are displayed -->
-
-            <section class="is-flex-grow-5">
-            
-            <div class="card custom_colorBG mx-4 mt-6">
-
-                <div class="card-content is-flex-direction-column">
-
-                    <!-- Posts displayed here -->
-                    <h3>Posts appear here</h3>
-                </div>
-                
-            </div>
+                    
+                    
 
             </section>
 

@@ -8,7 +8,6 @@ const multer = require('multer');  // Multer for handling file uploads
 const { POST } = require('./model');
 const routes = require('./controllers');
 
-
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
