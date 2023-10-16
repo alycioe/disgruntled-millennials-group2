@@ -27,8 +27,21 @@ const loginFormHandler = async (event) => {
 
     if (email && password && username && Animal) {
 
-      console.log(email + password + username + Animal + "login"); // sign up user in here
+      const info = {
+        username: username ,
+        email : email ,
+        password : password ,
+        animalChoice : Animal
+      }
 
+      fetch('/signIn/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(info),
+      })
+      
     }
 
   };

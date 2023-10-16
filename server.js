@@ -43,7 +43,7 @@ app.engine(
 app.set('view engine', 'handlebars');
 
 // This sends the user to the signup page at the root
-app.get('/', (req, res) => {
+app.get('/signup', (req, res) => {
   res.render('signup', {
     layout: 'main',
     });

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../model');
 const { Sequelize } = require('sequelize');
+const fs = require('fs');
 const bcrypt = require('bcrypt');
 
 router.post('/login', async (req, res) => {
@@ -43,71 +44,67 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-    try {
-        const { email, password, animalChoice } = req.body;
+    // Extract text content from the request body
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+  const newUser = req.body;
 
-        const newUser = await User.create({
-            username: "test",
-            email: email,
-            password: hashedPassword,
-            animalChoice: animalChoice,
-        });
+  fs.readFile('./seeds/userData.json', 'utf8', async (err, data) => {
 
-        res.status(201).json(newUser);
-        res.redirect('/homepage');
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Failed to create new user '});
+    if (err) {
+
+      console.error(err);
+
+  } else {
+
+      // Convert string into JSON object
+
+      const parsedUser = JSON.parse(data);
+
+      // Add a new note
+
+        var user = await User.create({
+
+          username : newUser.username,
+
+          email : newUser.email,
+
+          password : newUser.password,
+
+          animalChoice : newUser.animalChoice
+          
+        })
+
+      .then(() => {
+
+        parsedUser.push({username : newUser.username, animalChoice : newUser.animalChoice});
+
+        // Write updated reviews back to the file
+
+        fs.writeFile('./seeds/userData.json', JSON.stringify(parsedUser, null, 4),(writeErr) =>
+
+          writeErr
+
+            ? console.error({})
+
+            : console.info('Successfully updated Users!')
+
+
+      )
+        // Post creation successful
+        // REDIRECT TO DASHBOARD...?
+        res.redirect('/dashboard'); //
+
+      })
+      
+      .catch((err) => {
+        console.error('Error creating user:', err);
+        res.status(500).json({ error: 'Failed to create new user '});      })
+
     }
+
+
 });
 
-
-
-// DIFFERENT VERSION 
-
-// app.post('/login', async (req, res) => {
-//     try {
-//         const { loginIdentifier, loginPassword } = req.body;
-    
-//         const user = User.find(user => user.email === loginIdentifier || user.username === loginIdentifier);
-//         if (!user) {
-//         return res.status(404).json({ message: 'User not found' });
-//         }
-    
-//         if (User.password !== loginPassword) {
-//         return res.status(401).json({ message: 'Incorrect password' });
-//         }
-    
-//         res.json({ message: 'Login successful' });
-
-//         req.session.save(() => {
-//             req.session.user_id = userData.id;
-//             req.session.logged_in = true;
-
-//             res.json({ user: userData, message: 'Successfully logged in!' });
-//         });
-
-//     } catch (err) {
-//         console.error(err);
-//         res.status(400).json(err);
-//     }
-//   });
-
-// app.post('/signup', (req, res) => {
-//     const { email, username, password, animalChoice } = req.body;
-  
-//     const userExists = User.some(user => user.email === email || user.username === username);
-//     if (userExists) {
-//       return res.status(400).json({ message: 'User already exists '});
-//     }
-  
-//     const newUser = { email, username, password, animalChoice };
-//     user.push(newUser);
-  
-//     res.status(201).json({ message: 'User registered successfully' });
-//   });
-
+});
 
 module.exports = router;

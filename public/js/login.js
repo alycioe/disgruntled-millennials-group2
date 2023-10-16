@@ -14,7 +14,18 @@ const loginFormHandler = async (event) => {
 
     if (username && password) {
 
-      console.log (username + password + " login"); // log user in here
+      const info = {
+        username: username ,
+        password : password 
+      }
+
+      fetch('/homepage/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(info),
+      })
 
     }
 
