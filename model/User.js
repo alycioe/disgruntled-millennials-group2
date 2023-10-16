@@ -19,28 +19,35 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       primaryKey: true,
       validate: {
         notNull: {
           msg: 'Please enter your userName'
-        }
+        },
       }
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+      isEmail: true,
       validate: {
-        isEmail: true,
-        msg: 'Please enter your email'
+        isEmail: {
+        msg: 'Please enter your email'}
       },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
+      len: [8,64],
       validate: {
-        len: [8],
-        msg: 'Please enter your password'
+        notNull: {
+          msg: 'Please enter your password'
+        },
+        len : {
+          msg : "Please make your passwordbetween 8 and 64 characters"
+        }
       },
     },
     animalChoice: {
