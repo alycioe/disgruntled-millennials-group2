@@ -7,19 +7,19 @@ const loginFormHandler = async (event) => {
   
     // Collects login info
 
-    const username = document.querySelector('#login-identifier').value.trim();
+    const email = document.querySelector('#login-identifier').value.trim();
 
     const password = document.querySelector('#login-password').value.trim();
 
 
-    if (username && password) {
+    if (email && password) {
 
       const info = {
-        username: username ,
+        email: email ,
         password : password 
       }
 
-      fetch('/homepage/login', {
+      const response = await fetch('api/signIn/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -27,6 +27,17 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify(info),
       })
 
+      if (response.ok) {
+      
+      document.location.replace('/dashboard');
+
+      }
+
+      else {
+
+        alert(response.statusText);
+
+      }
     }
 
   };

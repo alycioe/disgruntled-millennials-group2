@@ -6,17 +6,13 @@ const bcrypt = require('bcrypt');
 
 router.post('/login', async (req, res) => {
     try {
-        const userData = await User.findOne({ where: 
-                Sequelize.or(
-                    { email: req.body.email },
-                    { username: req.body.username } 
-                )
+        const userData = await User.findOne({ where: { email: req.body.email }
             });
 
             if (!userData) {
                 res
                     .status(400)
-                    .json({ message: 'Incorrect information entered '});
+                    .json({ message: 'Incorrect information entered email'});
                 return;
             }
 
@@ -25,18 +21,17 @@ router.post('/login', async (req, res) => {
         if (!validatePassword) {
             res
                 .status(400)
-                .json({ message: 'Incorrect information entered '});
+                .json({ message: 'Incorrect information entered pass '});
             return;
         }
 
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.logged_in = true;
-
             res.json({ user: userData, message: 'Logged in successfully! '});
+            
         });
-
-        res.redirect('/homepage');
+        
     } catch (err) {
         console.error(err);
         res.status(500).json(err);

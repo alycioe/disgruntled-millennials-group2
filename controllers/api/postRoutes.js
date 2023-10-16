@@ -6,8 +6,10 @@ const { Post } = require('../../model');
 const fs = require('fs');
 const multer = require('multer');
 
+const Auth = require('../../utils/auth');
+
 // Route for text posts (no image)
-router.post('/create-text-post', async (req, res) => {
+router.post('/create-text-post', Auth , async (req, res) => {
 
   // Extract text content from the request body
 
