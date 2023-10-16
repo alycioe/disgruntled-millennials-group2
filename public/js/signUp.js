@@ -34,13 +34,32 @@ const loginFormHandler = async (event) => {
         animalChoice : Animal
       }
 
-      fetch('/signIn/signup', {
+      await fetch('./api/signIn/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(info),
       })
+
+      const logininfo = {
+        email: email ,
+        password : password 
+      }
+
+      const response = await fetch('/api/signIn/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(logininfo),
+      })
+
+      if (response.ok) {
+      
+      document.location.replace('/dashboard');
+
+      }
       
     }
 

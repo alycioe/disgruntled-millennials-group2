@@ -20,7 +20,7 @@ const postHandler = async (event) => {
             text : text
         }
   
-        fetch('/homepage/create-text-post', {
+        fetch('/post/create-text-post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
