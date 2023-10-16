@@ -35,8 +35,11 @@ Used to make read me https://github.com/jbird11801/ReadMeGenerator
 ==============================================================================================================================
 
 Alexander Locke : https://github.com/AlexanderLocke
+
 Jarod : https://github.com/jbird11801
+
 Joseph Teixeira: https://github.com/jotex11
+
 Allyson Pacheco: https://github.com/alycioe
 
 ==============================================================================================================================
