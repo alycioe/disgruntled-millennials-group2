@@ -9,3 +9,7 @@
     background-color:  rgba(78, 222, 208);
 
 }
+
+.hidden {
+    display: none;
+}
