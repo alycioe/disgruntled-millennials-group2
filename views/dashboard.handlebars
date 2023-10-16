@@ -2,9 +2,12 @@
 
         <nav class="navbar custom_colorBG">
 
-            <h2 class="title is-2" > MilBook </h2>
+            <h2 class="title is-2 mt-4 mx-4" > MilBook </h2>
+            
+        </nav>
 
-
+        <nav>
+            <div id="localDateTime" class="mt-4 mx-4"></div>
         </nav>
 
         <section class=" is-flex is-flex-direction-row  mt-4 mx-2 custom_colorBD"	>
@@ -19,7 +22,7 @@
 
                 <!-- Add an empty image space as a placeholder -->
                 <div class="card-content is-flex-direction-column" id="ProfilePicturePlaceholder">
-                    <img src="profile_picture.jpg" alt="Empty Image" width="100" height="100">
+                    <img src="images/profile_picture.jpg" alt="Empty Image" width="100" height="100">
                 </div>
 
                 <div class="card-content is-flex-direction-column" id = "Animal">
@@ -31,9 +34,10 @@
             </div>
 
 
-        <!-- Where posts are displayed -->
+        <!-- Where random inspirational quotes go -->
 
             <section class="is-flex-grow-5">
+
 
             {{#each posts as |Posts|}}
             
@@ -41,12 +45,20 @@
 
                 <div class="card-content">
 
-                    <!-- Posts displayed here -->
+
+                    <h1 id="contentType"></h1>            
 
                     <p>{{Posts.userName}} : {{Posts.text}}</p>
                     
                 </div>
-                
+            </div>
+            
+            <div class="card custom_colorBG mx-4 mt-1">
+                <div class="card-content is-flex-direction-column">
+                    <img id="randomImage" src="" alt="Random Image" class="hidden">
+                    <p id="randomQuote"></p>
+                    <p id="randomAuthor"></p> 
+                </div>    
             </div>
 
             {{/each}}
@@ -82,4 +94,6 @@
 
     </section>
 
+     <script src="./js/dashboardContent.js"></script>
      <script src="./js/post.js"></script>
+     
