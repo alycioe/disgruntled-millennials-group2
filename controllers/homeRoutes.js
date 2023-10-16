@@ -30,12 +30,33 @@ router.get('/login', (req, res) => {
   });
  });
 
-  // This sends the user to the login page at /signup
-  router.get('/dashboard', Auth ,(req, res) => {
-  res.render('dashboard', {
-    layout: 'main',
+//   // This sends the user to the login page at /signup
+//   router.get('/dashboard', Auth ,(req, res) => {
+//   res.render('dashboard', {
+//     layout: 'main',
+//     });
+//  });
+
+ router.get('/dashboard', Auth ,async (req, res) => {
+  try {
+
+    const postsdata = await Post.findAll({
+      
+          attributes: ['userName' , 'text'],
+
     });
- });
+
+        // Serialize data so the template can read it
+        const posts = postsdata.map((post) => post.get({ plain: true }));
+
+    res.render('dashboard', {
+      posts
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
 
  router.get('/', (req, res) => {
   res.render('login', {

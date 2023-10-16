@@ -6,13 +6,6 @@ const postHandler = async (event) => {
 
     const text = document.querySelector('#TextBox').value.trim();
 
-    console.log(text + `
-    
-    here
-
-    `
-    );
-
         const info = {
 
             userName : username,
@@ -20,30 +13,16 @@ const postHandler = async (event) => {
             text : text
         }
   
-        fetch('/api/post/create-text-post', {
+        await fetch('/api/post/create-text-post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(info),
         })
+
+        window.location.href = '/dashboard';
   
-    // fetch('../../controllers/api/postRoutes/create-text-posts' , {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify({ text: postText }),
-    // })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         // Handle the response from the server, e.g., display the new post
-    //         console.log(data);
-    //         // You can update the UI with the new post if needed
-    //     })
-    //     .catch((error) => {
-    //         console.error('Error:', error);
-    //     });
 };
 
 document.querySelector('#postButton')

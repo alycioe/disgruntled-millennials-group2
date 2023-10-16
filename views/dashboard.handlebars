@@ -13,7 +13,7 @@
                 
                 <div class="card-content is-flex-direction-column" id = "Name">
 
-                    Name: John Doe
+                    Name: {{User}}
 
                 </div>
 
@@ -34,18 +34,22 @@
         <!-- Where posts are displayed -->
 
             <section class="is-flex-grow-5">
-            
-            <div class="card custom_colorBG mx-4 mt-6">
 
-                <div class="card-content is-flex-direction-column">
+            {{#each posts as |Posts|}}
+            
+            <div class="card custom_colorBG mx-4 my-1">
+
+                <div class="card-content">
 
                     <!-- Posts displayed here -->
 
-                    <h3>Posts appear here</h3>
+                    <p>{{Posts.userName}} : {{Posts.text}}</p>
                     
                 </div>
                 
             </div>
+
+            {{/each}}
 
             <!-- Make a post area -->
 
@@ -69,7 +73,7 @@
                     <form action="/create-image-post" method="POST" enctype="multipart/form-data">
                         <input type="file" name="image" id="image" accept="image/*">
                     </form>
-                    
+
             </div>
                     
                     
