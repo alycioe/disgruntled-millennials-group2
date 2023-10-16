@@ -20,7 +20,7 @@ const postHandler = async (event) => {
             text : text
         }
   
-        fetch('/post/create-text-post', {
+        fetch('/api/post/create-text-post', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -46,6 +46,5 @@ const postHandler = async (event) => {
     //     });
 };
 
-document
-.querySelector('#postButton')
+document.querySelector('#postButton')
 .addEventListener('click', postHandler);

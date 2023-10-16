@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const{ User, Post } = require('../model');
+const Auth = require('../utils/auth');
 
 // If not logged in, directs user to login before viewing homepage.
 // If logged in, homepage is displayed
@@ -30,7 +31,7 @@ router.get('/login', (req, res) => {
  });
 
   // This sends the user to the login page at /signup
-  router.get('/dashboard', (req, res) => {
+  router.get('/dashboard', Auth ,(req, res) => {
   res.render('dashboard', {
     layout: 'main',
     });
