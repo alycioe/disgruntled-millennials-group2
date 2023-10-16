@@ -17,6 +17,11 @@
 
                 </div>
 
+                <!-- Add an empty image space as a placeholder -->
+                <div class="card-content is-flex-direction-column" id="ProfilePicturePlaceholder">
+                    <img src="profile_picture.jpg" alt="Empty Image" width="100" height="100">
+                </div>
+
                 <div class="card-content is-flex-direction-column" id = "Animal">
 
                     Animal: Dog
@@ -45,12 +50,35 @@
             <div class="card mx-4 my-4">
 
                 <!-- Make a post! section, for adding text, image, links, etc -->
+                    <h3>Type your post here!</h3>
 
                     <input class="input is-rounded custom_colorBD" type="text" placeholder="Message" id = "TextBox">
+
+                    <form action="/create-image-post" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="image" id="image" accept="image/*">
+                    </form>
+
                     <button class="button is-primary mt-2" id="postButton">Post</button> 
 
+            </div>
+
+
+            <!-- Where posts are displayed -->
+
+            <section class="is-flex-grow-5">
+            
+            <div class="card custom_colorBG mx-4 mt-6">
+
+                <div class="card-content is-flex-direction-column">
+
+                    <!-- Posts displayed here -->
+                    <h3>Posts appear here</h3>
+                </div>
+                
             </div>
 
             </section>
 
     </section>
+
+     <script src="../public/js/post.js"></script>
