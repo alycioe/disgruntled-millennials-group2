@@ -42,27 +42,6 @@ app.engine(
 );
 app.set('view engine', 'handlebars');
 
-// This sends the user to the signup page at the root
-app.get('/signup', (req, res) => {
-  res.render('signup', {
-    layout: 'main',
-    });
- });
-
- // This sends the user to the login page at /login
-app.get('/login', (req, res) => {
-  res.render('login', {
-  layout: 'main',
-  });
- });
-
-  // This sends the user to the login page at /signup
- app.get('/dashboard', (req, res) => {
-  res.render('dashboard', {
-    layout: 'main',
-    });
- });
-
 // Multer for handling file uploads
 // CURRENTLY ONLY FOR LOCAL STORAGE
 const storage = multer.diskStorage({
