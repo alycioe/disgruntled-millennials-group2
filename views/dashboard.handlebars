@@ -11,8 +11,8 @@
 
     <div class="card is-flex-grow-1 m-2 custom_colorBG">
 
-        <div class="card-content is-flex-direction-column" id="Name">
-            Name: <p>{{userName}}</p>
+        <div class="card-content is-flex-direction-column" >
+            Name: <p id="Name">{{userData.username}}</p>
         </div>
          
 
@@ -22,7 +22,7 @@
         </div>
 
         <div class="card-content is-flex-direction-column" id="Animal">
-            Animal: Dog
+            Animal: <p>{{userData.animalChoice}}</p>
         </div>
 
     </div>
