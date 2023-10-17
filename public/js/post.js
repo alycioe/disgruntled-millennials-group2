@@ -2,13 +2,17 @@ const postHandler = async (event) => {
 
     event.preventDefault();
 
-    const username = "jack";// get session user name 
+    const username = document.getElementById('Name');
+
+    const userText = username.textContent;
+
+    // get session user name 
 
     const text = document.querySelector('#TextBox').value.trim();
 
         const info = {
 
-            userName : username,
+            userName : userText,
 
             text : text
         }

@@ -41,22 +41,39 @@ router.get('/login', (req, res) => {
   try {
 
     const postsdata = await Post.findAll({
-      
-          attributes: ['userName' , 'text'],
+      attributes: ['userName', 'text'],
+    });
+
+    // Serialize data so the template can read it
+
+    const posts = postsdata.map((post) => post.get({ plain: true }));
+
+    const currentUser = await User.findOne({
+
+      where: {id: req.session.user_id}
 
     });
 
-        // Serialize data so the template can read it
-        const posts = postsdata.map((post) => post.get({ plain: true }));
+    const user = currentUser.get({ plain: true });
+
+    console.log(user);
+
+    const userData = { username : user.username , animalChoice : user.animalChoice}
 
     res.render('dashboard', {
       posts
+      ,
+      userData
     });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
   }
 });
+
+router.get('/getName', (req, res) => {
+  res (req.session.name)
+ });
 
  router.get('/', (req, res) => {
   res.render('login', {
